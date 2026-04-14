@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <title>Melbourne Study Spots | Quiet Libraries & Cafes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
   <meta name="description" content="Discover the best study spots in Melbourne including quiet libraries and study-friendly cafes with opening hours.">
 
   <style>
@@ -52,17 +50,20 @@
     h2 {
       margin-top: 56px;
       font-size: 26px;
+      text-align: center;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 32px;
       margin-top: 32px;
+      justify-content: center; /* ✅ CRITICAL FIX */
     }
 
     .card {
-      background: #ffffff;
+      max-width: 420px; /* keeps cards visually centered */
+      background: #fff;
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 12px 28px rgba(0,0,0,0.12);
@@ -75,18 +76,13 @@
     }
 
     .content {
-      padding: 22px 22px 26px;
-    }
-
-    .content h3 {
-      margin: 0;
-      font-size: 20px;
+      padding: 22px;
     }
 
     .suburb {
       font-size: 14px;
       color: #6b7280;
-      margin: 8px 0 10px;
+      margin: 6px 0 8px;
     }
 
     .badges span {
@@ -122,26 +118,23 @@
 <body>
 <div class="container">
 
-  <!-- HEADER -->
   <header>
     <h1>Best Study Spots in Melbourne</h1>
     <p class="subtitle">
-      Quiet libraries and study‑friendly cafes across Melbourne — with opening hours
+      Quiet libraries and study-friendly cafes across Melbourne — with opening hours
     </p>
-
     <div class="intro">
       <p>
-        Finding a quiet place to study in Melbourne can be difficult, especially during exams.
-        This guide highlights libraries and cafes that are ideal for focused study, stable Wi‑Fi
-        and long sessions.
+        This guide lists calm, reliable places to study in Melbourne based on quietness,
+        Wi‑Fi quality and comfort for long sessions.
       </p>
     </div>
   </header>
 
-  <!-- LIBRARIES -->
   <h2>📚 Quiet Libraries in Melbourne</h2>
 
   <div class="grid">
+
     <div class="card">
       <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80">
       <div class="content">
@@ -152,7 +145,7 @@
           <span>🔌 Power</span>
           <span>📶 Stable WiFi</span>
         </div>
-        <strong>Best for:</strong> Deep focus, long study sessions
+        <strong>Best for:</strong> Deep focus<br>
         <div class="hours">⏰ Mon–Thu 10am–9pm · Fri–Sun 10am–6pm</div>
       </div>
     </div>
@@ -167,16 +160,17 @@
           <span>🔌 Power</span>
           <span>📶 Stable WiFi</span>
         </div>
-        <strong>Best for:</strong> Exam prep, long sessions
+        <strong>Best for:</strong> Exams<br>
         <div class="hours">⏰ Mon–Fri 9am–8pm · Sat–Sun 10am–5pm</div>
       </div>
     </div>
+
   </div>
 
-  <!-- CAFES -->
   <h2>☕ Study‑Friendly Cafes in Melbourne</h2>
 
   <div class="grid">
+
     <div class="card">
       <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80">
       <div class="content">
@@ -185,33 +179,17 @@
         <div class="badges">
           <span>☕ Quiet Mornings</span>
           <span>💻 Laptops OK</span>
-          <span>📶 Good WiFi</span>
         </div>
-        <strong>Best for:</strong> Short study sessions
+        <strong>Best for:</strong> Short study<br>
         <div class="hours">⏰ Mon–Fri 7am–4pm · Sat–Sun 8am–4pm</div>
       </div>
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80">
-      <div class="content">
-        <h3>Brother Baba Budan</h3>
-        <div class="suburb">Melbourne CBD</div>
-        <div class="badges">
-          <span>☕ Calm Atmosphere</span>
-          <span>💻 Laptop Friendly</span>
-        </div>
-        <strong>Best for:</strong> Light study & laptop work
-        <div class="hours">⏰ Daily 7am–4pm</div>
-      </div>
-    </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p>
-      Back to
-      <a href="/">Study Spots Australia</a> |
+      Back to <a href="/">Study Spots Australia</a> |
       <a href="/study-spots-tarneit.html">Tarneit Study Spots</a>
     </p>
   </footer>
