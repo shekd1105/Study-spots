@@ -1,221 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Study Spots Australia | Quiet Libraries & Cafes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Find quiet libraries, cafes and study spaces across Australia for focus and productivity." />
-
+  <meta charset="UTF-8">
+  <title>Study Spots Australia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: system-ui, -apple-system, Arial, sans-serif;
-      background: #eef2f7;
+      font-family: system-ui, Arial, sans-serif;
+      background: #f0f2f5;
       margin: 0;
-      padding: 48px 16px;
-      color: #111;
+      padding: 40px 16px;
     }
-
-    .container {
-      max-width: 1100px;
+    .box {
+      max-width: 1000px;
       margin: auto;
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
     }
-
-    .main {
-      background: #ffffff;
-      padding: 40px 32px 48px;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 38px;
-    }
-
-    header p {
-      margin: 12px 0 28px;
-      color: #4b5563;
-      font-size: 18px;
-    }
-
-    .search input {
-      width: 100%;
-      max-width: 520px;
-      padding: 14px 16px;
-      font-size: 16px;
-      border: 1px solid #d1d5db;
-      border-radius: 14px;
-      outline: none;
-    }
-
-    .filters {
-      margin: 32px 0 48px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .filters button {
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      border-radius: 999px;
-      padding: 10px 18px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .filters button.active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
     .card {
-      background: #ffffff;
-      border-radius: 18px;
+      margin-top: 24px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
     }
-
-    .card img {
+    img {
       width: 100%;
       height: 220px;
       object-fit: cover;
-      display: block;
     }
-
     .content {
-      padding: 22px 22px 26px;
-    }
-
-    .suburb {
-      color: #6b7280;
-      font-size: 14px;
-      margin: 6px 0 12px;
-    }
-
-    .badges span {
-      background: #f3f4f6;
-      padding: 6px 10px;
-      border-radius: 12px;
-      font-size: 14px;
-      margin-right: 6px;
-    }
-
-    footer {
-      margin-top: 72px;
-      text-align: center;
-      color: #6b7280;
-      font-size: 14px;
+      padding: 16px;
     }
   </style>
 </head>
 
 <body>
+<div class="box">
+  <h1>Study Spots Australia</h1>
+  <p>Quiet places to study across Australia</p>
 
-<div class="container">
-  <div class="main">
-
-    <header>
-      <h1>Study Spots Australia</h1>
-      <p>Find quiet libraries, cafes and study spaces across Australia</p>
-      <input id="search" placeholder="Search city or suburb" />
-    </header>
-
-    <div class="filters">
-      <button class="active" onclick="filter('all', this)">All</button>
-      <button onclick="filter('library', this)">Libraries</button>
-      <button onclick="filter('cafe', this)">Cafes</button>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80">
+    <div class="content">
+      <strong>📍 State Library Victoria</strong><br>
+      Melbourne CBD<br>
+      Very Quiet · Power · Stable WiFi<br>
+      Best for: Deep focus
     </div>
-
-    <div class="grid" id="grid"></div>
-
-    <footer>
-      <a href="/melbourne-studymlExplore Melbourne Study Spots</a>
-    </footer>
-
   </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80">
+    <div class="content">
+      <strong>📍 Library at The Dock</strong><br>
+      Docklands<br>
+      Very Quiet · Power · Stable WiFi<br>
+      Best for: Exams
+    </div>
+  </div>
+
 </div>
-
-<script>
-  const data = [
-    {
-      type: "library",
-      name: "State Library Victoria",
-      suburb: "Melbourne CBD",
-      img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=80",
-      tags: "🔇 Very Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
-      best: "Deep focus"
-    },
-    {
-      type: "library",
-      name: "Library at The Dock",
-      suburb: "Docklands",
-      img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80",
-      tags: "🔇 Very Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
-      best: "Exam prep"
-    },
-    {
-      type: "library",
-      name: "Tarneit Library",
-      suburb: "Tarneit",
-      img: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1400&q=80",
-      tags: "🔇 Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
-      best: "Study sessions"
-    },
-    {
-      type: "cafe",
-      name: "Seven Seeds Coffee Roasters",
-      suburb: "Carlton",
-      img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80",
-      tags: "☕ Quiet mornings | 💻 Laptop friendly",
-      best: "Short study sessions"
-    }
-  ];
-
-  let current = "all";
-  const grid = document.getElementById("grid");
-  const search = document.getElementById("search");
-
-  function render() {
-    grid.innerHTML = data
-      .filter(x => current === "all" || x.type === current)
-      .filter(x => x.name.toLowerCase().includes(search.value.toLowerCase())
-        || x.suburb.toLowerCase().includes(search.value.toLowerCase()))
-      .map(x => `
-        <div class="card">
-          <img src="${x.img}" alt="${ss="content">
-            <h3>📍 ${x.name}</h3>
-            <div class="suburb">${x.suburb}</div>
-            <div class="badges"><span>${x.tags}</span></div>
-            <p><strong>Best for:</strong> ${x.best}</p>
-          </div>
-        </div>
-      `).join("");
-  }
-
-  function filter(type, btn) {
-    current = type;
-    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
-  }
-
-  search.oninput = render;
-  render();
-</script>
-
 </body>
 </html>
-``
