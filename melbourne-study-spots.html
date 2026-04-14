@@ -26,26 +26,32 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
     h1 {
-      margin-top: 0;
+      margin: 0;
       font-size: 36px;
     }
 
     .subtitle {
       color: #4b5563;
       font-size: 18px;
-      margin-bottom: 32px;
+      margin: 12px 0 32px;
+    }
+
+    .intro {
+      max-width: 840px;
+      margin: 0 auto;
+      line-height: 1.7;
+      color: #374151;
     }
 
     h2 {
       margin-top: 56px;
       font-size: 26px;
-    }
-
-    .intro {
-      line-height: 1.7;
-      color: #374151;
-      max-width: 840px;
     }
 
     .grid {
@@ -116,25 +122,26 @@
 <body>
 <div class="container">
 
-  <h1>Best Study Spots in Melbourne</h1>
-  <p class="subtitle">
-    Quiet libraries and study‑friendly cafes across Melbourne — with opening hours
-  </p>
-
-  <div class="intro">
-    <p>
-      Finding a quiet place to study in Melbourne can be difficult, especially during exams.
-      This guide lists libraries and cafes that are ideal for focused study, Wi‑Fi stability
-      and long sessions.
+  <!-- HEADER -->
+  <header>
+    <h1>Best Study Spots in Melbourne</h1>
+    <p class="subtitle">
+      Quiet libraries and study‑friendly cafes across Melbourne — with opening hours
     </p>
-  </div>
+
+    <div class="intro">
+      <p>
+        Finding a quiet place to study in Melbourne can be difficult, especially during exams.
+        This guide highlights libraries and cafes that are ideal for focused study, stable Wi‑Fi
+        and long sessions.
+      </p>
+    </div>
+  </header>
 
   <!-- LIBRARIES -->
   <h2>📚 Quiet Libraries in Melbourne</h2>
 
   <div class="grid">
-
-    <!-- State Library -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80">
       <div class="content">
@@ -150,7 +157,6 @@
       </div>
     </div>
 
-    <!-- Dock -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80">
       <div class="content">
@@ -165,15 +171,12 @@
         <div class="hours">⏰ Mon–Fri 9am–8pm · Sat–Sun 10am–5pm</div>
       </div>
     </div>
-
   </div>
 
   <!-- CAFES -->
   <h2>☕ Study‑Friendly Cafes in Melbourne</h2>
 
   <div class="grid">
-
-    <!-- Higher Ground -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80">
       <div class="content">
@@ -189,7 +192,6 @@
       </div>
     </div>
 
-    <!-- Brother Baba Budan -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80">
       <div class="content">
@@ -203,13 +205,13 @@
         <div class="hours">⏰ Daily 7am–4pm</div>
       </div>
     </div>
-
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <p>
       Back to
-      <a href="/">Study Spots Melbourne</a> |
+      <a href="/">Study Spots Australia</a> |
       <a href="/study-spots-tarneit.html">Tarneit Study Spots</a>
     </p>
   </footer>
