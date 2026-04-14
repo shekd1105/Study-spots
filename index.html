@@ -43,12 +43,6 @@
       font-size: 18px;
     }
 
-    .search {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-
     .search input {
       width: 100%;
       max-width: 520px;
@@ -60,11 +54,10 @@
     }
 
     .filters {
+      margin: 32px 0 48px;
       display: flex;
       justify-content: center;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
     }
 
     .filters button {
@@ -93,11 +86,6 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-      transition: transform 0.15s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
     }
 
     .card img {
@@ -107,41 +95,29 @@
       display: block;
     }
 
-    .card .content {
+    .content {
       padding: 22px 22px 26px;
     }
 
-    .card h3 {
-      margin: 0;
-      font-size: 20px;
-    }
-
     .suburb {
-      font-size: 14px;
       color: #6b7280;
-      margin: 8px 0 14px;
+      font-size: 14px;
+      margin: 6px 0 12px;
     }
 
     .badges span {
-      display: inline-block;
       background: #f3f4f6;
-      padding: 8px 12px;
+      padding: 6px 10px;
       border-radius: 12px;
-      margin: 6px 6px 0 0;
       font-size: 14px;
-      font-weight: 500;
+      margin-right: 6px;
     }
 
     footer {
       margin-top: 72px;
       text-align: center;
-      font-size: 14px;
       color: #6b7280;
-    }
-
-    footer a {
-      color: #4f46e5;
-      text-decoration: none;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -151,104 +127,95 @@
 <div class="container">
   <div class="main">
 
-    <!-- HEADER -->
     <header>
       <h1>Study Spots Australia</h1>
-      <p>Find quiet libraries, cafes and study spaces across Australia for focus and productivity</p>
-
-      <div class="search">
-        <input id="search" placeholder="Search city, suburb or library" />
-      </div>
-
-      <div class="filters">
-        <button class="active" onclick="setFilter('all', this)">All</button>
-        <button onclick="setFilter('library', this)">Libraries</button>
-        <button onclick="setFilter('cafe', this)">Cafes</button>
-      </div>
+      <p>Find quiet libraries, cafes and study spaces across Australia</p>
+      <input id="search" placeholder="Search city or suburb" />
     </header>
 
-    <!-- CARDS -->
-    <div class="grid" id="spots"></div>
+    <div class="filters">
+      <button class="active" onclick="filter('all', this)">All</button>
+      <button onclick="filter('library', this)">Libraries</button>
+      <button onclick="filter('cafe', this)">Cafes</button>
+    </div>
 
-    <!-- FOOTER -->
+    <div class="grid" id="grid"></div>
+
     <footer>
-      <p>
-        Explore:
-        <a href="/melbourne-study-spots.html">Melbourne Study Spots Guide</a>
-      </p>
+      <a href="/melbourne-studymlExplore Melbourne Study Spots</a>
     </footer>
 
   </div>
 </div>
 
 <script>
-  const spots = [
+  const data = [
     {
       type: "library",
       name: "State Library Victoria",
       suburb: "Melbourne CBD",
-      image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=80",
+      img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=80",
       tags: "🔇 Very Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
-      bestFor: "Deep focus, long study sessions"
+      best: "Deep focus"
     },
     {
       type: "library",
       name: "Library at The Dock",
       suburb: "Docklands",
-      image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80",
+      img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80",
       tags: "🔇 Very Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
-      bestFor: "Exam preparation"
+      best: "Exam prep"
     },
     {
       type: "library",
       name: "Tarneit Library",
       suburb: "Tarneit",
-      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1400&q=80",
+      img: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1400&q=80",
       tags: "🔇 Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
-      bestFor: "Study & exams"
+      best: "Study sessions"
     },
     {
       type: "cafe",
       name: "Seven Seeds Coffee Roasters",
       suburb: "Carlton",
-      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80",
+      img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80",
       tags: "☕ Quiet mornings | 💻 Laptop friendly",
-      bestFor: "Short study sessions"
+      best: "Short study sessions"
     }
   ];
 
-  let currentFilter = "all";
-  const grid = document.getElementById("spots");
+  let current = "all";
+  const grid = document.getElementById("grid");
   const search = document.getElementById("search");
 
   function render() {
-    const q = search.value.toLowerCase();
-    grid.innerHTML = spots
-      .filter(s => currentFilter === "all" || s.type === currentFilter)
-      .filter(s => s.name.toLowerCase().includes(q) || s.suburb.toLowerCase().includes(q))
-      .map(s => `
+    grid.innerHTML = data
+      .filter(x => current === "all" || x.type === current)
+      .filter(x => x.name.toLowerCase().includes(search.value.toLowerCase())
+        || x.suburb.toLowerCase().includes(search.value.toLowerCase()))
+      .map(x => `
         <div class="card">
-{s.image}
-          <div class="content">
-            <h3>📍 ${s.name}</h3>
-            <div class="suburb">${s.suburb}</div>
-            <div class="badges"><span>${s.tags}</span></div>
-            <p><strong>Best for:</strong> ${s.bestFor}</p>
+          <img src="${x.img}" alt="${ss="content">
+            <h3>📍 ${x.name}</h3>
+            <div class="suburb">${x.suburb}</div>
+            <div class="badges"><span>${x.tags}</span></div>
+            <p><strong>Best for:</strong> ${x.best}</p>
           </div>
         </div>
       `).join("");
   }
 
-  function setFilter(type, btn) {
-    currentFilter = type;
+  function filter(type, btn) {
+    current = type;
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     render();
   }
 
-  search.addEventListener("input", render);
+  search.oninput = render;
   render();
 </script>
 
 </body>
 </html>
+``
