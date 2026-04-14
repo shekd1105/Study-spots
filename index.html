@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Study Spots Australia</title>
+  <title>Study Spots Australia | Quiet Libraries & Cafes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Find quiet places to study, work and focus in Melbourne. Libraries and study-friendly cafes." />
+  <meta name="description" content="Find quiet libraries, cafes and study spaces across Australia for focus and productivity." />
 
   <style>
     body {
@@ -154,10 +154,10 @@
     <!-- HEADER -->
     <header>
       <h1>Study Spots Australia</h1>
-      <p>Find quiet places to study, work and focus</p>
+      <p>Find quiet libraries, cafes and study spaces across Australia for focus and productivity</p>
 
       <div class="search">
-        <input id="search" placeholder="Search suburb or library" />
+        <input id="search" placeholder="Search city, suburb or library" />
       </div>
 
       <div class="filters">
@@ -173,11 +173,8 @@
     <!-- FOOTER -->
     <footer>
       <p>
-    
-       
-<a href="/melbourne-study-spots.html">Melbourne Study Spots Guide</a>
-
-
+        Explore:
+        <a href="/melbourne-study-spots.html">Melbourne Study Spots Guide</a>
       </p>
     </footer>
 
@@ -190,32 +187,32 @@
       type: "library",
       name: "State Library Victoria",
       suburb: "Melbourne CBD",
-      image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80",
-      tags: "🔇 Very Quiet | 🔌 Power | 📶 WiFi Stable",
-      bestFor: "Deep focus"
+      image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=80",
+      tags: "🔇 Very Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
+      bestFor: "Deep focus, long study sessions"
     },
     {
       type: "library",
       name: "Library at The Dock",
       suburb: "Docklands",
-      image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80",
-      tags: "🔇 Very Quiet | 🔌 Power | 📶 WiFi Stable",
-      bestFor: "Long study sessions"
+      image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80",
+      tags: "🔇 Very Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
+      bestFor: "Exam preparation"
     },
     {
       type: "library",
       name: "Tarneit Library",
       suburb: "Tarneit",
-      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&q=80",
-      tags: "🔇 Quiet | 🔌 Power | 📶 WiFi Stable",
-      bestFor: "Exams & study"
+      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1400&q=80",
+      tags: "🔇 Quiet | 🔌 Power | 📶 Stable Wi‑Fi",
+      bestFor: "Study & exams"
     },
     {
       type: "cafe",
       name: "Seven Seeds Coffee Roasters",
       suburb: "Carlton",
-      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80",
-      tags: "☕ Quiet mornings | 💻 Laptops OK",
+      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80",
+      tags: "☕ Quiet mornings | 💻 Laptop friendly",
       bestFor: "Short study sessions"
     }
   ];
@@ -231,7 +228,8 @@
       .filter(s => s.name.toLowerCase().includes(q) || s.suburb.toLowerCase().includes(q))
       .map(s => `
         <div class="card">
-          <img      <div class="content">
+{s.image}
+          <div class="content">
             <h3>📍 ${s.name}</h3>
             <div class="suburb">${s.suburb}</div>
             <div class="badges"><span>${s.tags}</span></div>
